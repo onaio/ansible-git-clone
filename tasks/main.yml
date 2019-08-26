@@ -29,3 +29,4 @@
     accept_hostkey: yes
     clone: yes
   become: false
+  notify: "{{ git_clone_handler_names }}"
