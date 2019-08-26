@@ -1,0 +1,10 @@
+---
+- name: Converge
+  hosts: all
+  roles:
+    - role: ansible-git-clone
+      vars:
+        git_clone_dest_path: "/tmp/tmp"
+        git_clone_system_user: "git-clone"
+        git_clone_repo_url: "git@github.com:onaio/floip-canopy.git"
+        git_clone_repo_version: master

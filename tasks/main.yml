@@ -1,0 +1,31 @@
+---
+- name: Add system user
+  user:
+    name: "{{ git_clone_system_user }}"
+    shell: "{{ git_clone_shell }}"
+    group: "{{ git_clone_system_group }}"
+  become: true
+
+- name: Delete destination directory if exists
+  file:
+    path: "{{ git_clone_dest_path }}"
+    state: absent
+    owner: "{{ git_clone_system_user }}"
+  become: true
+
+- name: Create destination directory
+  file:
+    path: "{{ git_clone_dest_path }}"
+    state: directory
+    owner: "{{ git_clone_system_user }}"
+    mode: "0755"
+  become: true
+
+- name: Clone into destination directory
+  git:
+    repo: "{{ git_clone_repo_url }}"
+    version: "{{ git_clone_repo_version }}"
+    dest: "{{ git_clone_dest_path }}"
+    accept_hostkey: yes
+    clone: yes
+  become: false
