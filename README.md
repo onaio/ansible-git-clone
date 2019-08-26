@@ -1,48 +1,35 @@
-Role Name
+ansible-git-clone
 =========
 
-A brief description of the role goes here.
+Use this role to clone git repositories.
 
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should
-be mentioned here. For instance, if the role uses the EC2 module, it may be a
-good idea to mention in this section that the boto package is required.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including
-any variables that are in defaults/main.yml, vars/main.yml, and any variables
-that can/should be set via parameters to the role. Any variables that are read
-from other roles and/or the global scope (ie. hostvars, group vars, etc.) should
-be mentioned here as well.
+```yml
+git_clone_system_user: "git-clone"     # A user that will own the cloned directory 
+git_clone_system_group: "www-data"     # The group name that owns the cloned directory
+git_clone_shell: "/bin/bash"     # The system user shell
+git_clone_dest_path: "/tmp/tmp"     # The desired path for the cloned repository
+git_clone_repo_url: "git@github.com:onaio/floip-canopy.git"   # The git repository URL(SSH)
+git_clone_repo_version: master   # A branch, tag or commit hash to use when cloning
+git_clone_handler_names:   # List of handlers to be notified by the role
+```
 
-Dependencies
-------------
+Testing
+-------
 
-A list of other roles hosted on Galaxy should go here, plus any details in
-regards to parameters that may need to be set for other roles, or variables that
-are used from other roles.
+This role uses molecule for testing. To test, run:
 
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables
-passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: ansible-git-clone, x: 42 }
+    $ molecule test
 
 License
 -------
 
-BSD
+Apache 2.0
 
-Author Information
+Authors
 ------------------
 
-An optional section for the role authors to include contact information, or a
-website (HTML is not allowed).
+[Ona Engineering](https://ona.io)
