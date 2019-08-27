@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Ona Engineering
+  description: This role is used to clone git repos
+  company: Ona
+  license: Apache 2.0
+  min_ansible_version: 2.4
+  platforms:
+    - name: Ubuntu
+      verions:
+      - all
+  categories:
+    - git
+    - clone
+    - ssh
