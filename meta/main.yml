@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: git-clone
   author: Ona Engineering
   description: This role is used to clone git repos
   company: Ona
@@ -7,9 +8,14 @@ galaxy_info:
   min_ansible_version: 2.4
   platforms:
     - name: Ubuntu
-      verions:
-      - all
+      versions:
+        - all
   categories:
     - git
     - clone
     - ssh
+  galaxy_tags:
+    - git
+    - clone
+
+dependencies: []
